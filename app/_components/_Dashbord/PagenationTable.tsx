@@ -328,7 +328,7 @@ const PaginatedTable: React.FC<pagenationtableprops> = ({
                                     ); // استدعاء دالة بدء محادثة المستخدم
                                   } else if (api === "/messagesvendor") {
                                     // إذا كان نوع الحساب تاجر
-                                    handleStartConversationvendor(
+                                    handleStartConversationuser(
                                       item["vendor"]?.id,
                                       item["vendor"]?.account_type
                                     ); // استدعاء دالة بدء محادثة التاجر
