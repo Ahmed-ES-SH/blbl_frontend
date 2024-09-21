@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* تخصيص الشريط نفسه */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+.amiri-regular {
+  font-family: "Amiri", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.amiri-bold {
+  font-family: "Amiri", system-ui;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.amiri-regular-italic {
+  font-family: "Amiri", system-ui;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.amiri-bold-italic {
+  font-family: "Amiri", system-ui;
+  font-weight: 700;
+  font-style: italic;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #32aee7;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2798cc;
+}
+.hidden-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+@layer components {
+  .main_btn {
+    @apply text-xl mt-3 m-auto w-[300px] max-md:w-full px-2 py-4 text-center text-white rounded-md bg-secend_color;
+  }
+
+  .flex-col-center {
+    @apply flex flex-col items-center justify-center;
+  }
+  .flex-center {
+    @apply flex  items-center justify-center;
+  }
+
+  .flex-two {
+    @apply flex items-center gap-2;
+  }
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+
+  .order-card {
+    @apply flex-two shadow-md rounded-md;
+  }
+
+  .small-text {
+    @apply w-fit m-auto px-1 py-1 text-[14px] text-textlight_color;
+  }
+  .small-link {
+    @apply underline  text-[14px] text-main_color;
+  }
+
+  .input {
+    @apply px-3 py-2 w-full rounded-md bg-white border-textlight_color text-textlight_color;
+  }
+
+  .container-x {
+    @apply container px-[15px] my-5 m-auto;
+  }
+
+  .service-card {
+    @apply border rounded-sm overflow-hidden shadow-md;
+  }
+
+  .main-br {
+    @apply w-[85%] h-[5px] bg-textlight_color;
+  }
+
+  .main-bg {
+    @apply bg-gradient-to-b from-main_color to-white;
+  }
+
+  .redark {
+    @apply dark:bg-main_dash dark:text-secend_text;
+  }
+  .redark-2 {
+    @apply dark:bg-secend_dash dark:text-secend_text;
+  }
+  .redark-white {
+    @apply dark:bg-secend_dash dark:text-white;
+  }
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  animation: rotate 1s linear infinite;
+  -webkit-animation: rotate 1s linear infinite;
+}
+.loader::before,
+.loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid #400e0f;
+  animation: prixClipFix 1s linear infinite;
+  -webkit-animation: prixClipFix 1s linear infinite;
+}
+.loader::after {
+  border-color: #ffc206;
+  animation: prixClipFix 2s linear infinite, rotate 0.5s linear infinite reverse;
+  inset: 6px;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+  }
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+  }
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
+}
