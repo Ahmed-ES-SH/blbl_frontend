@@ -328,7 +328,7 @@ const PaginatedTable: React.FC<pagenationtableprops> = ({
                                     ); // استدعاء دالة بدء محادثة المستخدم
                                   } else if (api === "/messagesvendor") {
                                     // إذا كان نوع الحساب تاجر
-                                    handleStartConversationuser(
+                                    handleStartConversationvendor(
                                       item["vendor"]?.id,
                                       item["vendor"]?.account_type
                                     ); // استدعاء دالة بدء محادثة التاجر
@@ -350,7 +350,7 @@ const PaginatedTable: React.FC<pagenationtableprops> = ({
                       <div className="h-[60vh] flex items-center  justify-center">
                         <div className="w-fit m-auto flex flex-col items-center justify-center">
                           <Image
-                            src={"/images/empty.svg" || ""}
+                            src={"/images/empty.svg"}
                             alt="image"
                             width={1024}
                             height={1280}
