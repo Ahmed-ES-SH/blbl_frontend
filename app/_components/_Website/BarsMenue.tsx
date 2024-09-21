@@ -20,7 +20,7 @@ import { UseVariabels } from "@/app/context/VariabelsContext";
 
 export default function BarsMenue() {
   const { messageunread, setmessageunread } = UseVariabels();
-  const [currentuser, setcurrentuser] = useState<any>(null || {});
+  const [currentuser, setcurrentuser] = useState<any>(null);
 
   useEffect(() => {
     const getdata = async () => {
