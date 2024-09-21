@@ -18,6 +18,10 @@ module.exports = {
         protocol: "https",
         hostname: "alrajhost.com",
       },
+      {
+        protocol: "https",
+        hostname: "blbl.store", // أضف الواجهة الأمامية هنا
+      },
     ],
   },
 };
