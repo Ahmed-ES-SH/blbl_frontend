@@ -186,7 +186,7 @@ export default function SearchPage() {
             <div className="w-full mt-8 h-[50vh] gap-3 flex flex-col items-center justify-center">
               <h1>لا يوجد طلبات تلائم ما تبحث عنة حتى الأن</h1>
               <Image
-                src={"/images/empty.svg" || ""}
+                src={"/images/empty.svg"}
                 alt="image"
                 width={1024}
                 height={1280}
