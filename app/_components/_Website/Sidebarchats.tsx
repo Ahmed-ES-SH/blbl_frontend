@@ -61,7 +61,7 @@ export default function Sidebarchats() {
           <Link
             style={{ width: open ? "100%" : "fit-content" }}
             href={"/conversations"}
-            className="currentuser w-full px-2 py-1 flex items-center justify-between bg-sky-300 rounded-t-md"
+            className="currentuser w-full mt-[15px] px-2 py-1 flex items-center justify-between bg-sky-300 "
           >
             <div
               style={{ display: open ? "block" : "none" }}

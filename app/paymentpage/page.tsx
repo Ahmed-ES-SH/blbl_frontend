@@ -19,6 +19,7 @@ export default function PaymentPage() {
   const [totalmaincard, settotalmaincard] = useState("");
   const [serviceswithamount, setserviceswithamount] = useState<any>([]);
   const [openradio, setopenradio] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
 
   const handelappleclick = () => {
     setopenradio(openradio == "apple" ? "" : "apple"),
@@ -57,6 +58,10 @@ export default function PaymentPage() {
   }, [maincard]);
 
   const handlePaywithbalabnce = async () => {
+    if (parseFloat(balance) < parseFloat(totalmaincard)) {
+      setShowPopup(true); // إظهار الـ popup إذا كان الرصيد غير كافٍ
+      return; // عدم تنفيذ دالة الدفع
+    }
     try {
       setloading(true);
       if (balance < totalmaincard) {
@@ -75,7 +80,9 @@ export default function PaymentPage() {
       if (res.status == 200) {
         setmaincard([]);
         localStorage.removeItem("serviceswithamount");
-        router.push(`/success?transactionId=${res.data}`);
+        if (typeof window !== "undefined") {
+          window.location.href = `https://blbl.store/success?transactionId=${res.data.data}`;
+        }
       }
       setloading(false);
     } catch (error) {
@@ -252,6 +259,22 @@ export default function PaymentPage() {
           </div>
         )}
       </div>
+      {showPopup && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[1000]">
+          <div className="bg-white p-6 rounded-md shadow-md">
+            <h2 className="text-lg font-bold">معلومات</h2>
+            <p className="text-center">
+              عذرًا، الرصيد غير كافٍ لإتمام العملية.
+            </p>
+            <button
+              onClick={() => setShowPopup(false)}
+              className="mt-4 px-4 py-2 bg-secend_color text-white rounded-md"
+            >
+              إغلاق
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }

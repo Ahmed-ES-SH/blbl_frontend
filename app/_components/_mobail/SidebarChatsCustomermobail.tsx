@@ -46,8 +46,11 @@ export default function SidebarchatsCustomermobail() {
 
   return (
     <motion.div
-      initial={{ width: "0" }}
-      animate={{ width: open ? "100%" : "15%" }}
+      initial={{ width: "0", height: "0" }}
+      animate={{
+        width: open ? "100%" : "12%",
+        height: open ? "100vh" : "23vh",
+      }}
       exit={{ width: "0" }}
       transition={{ duration: 0.4 }}
       className="md:hidden absolute top-0 left-0  flex overflow-y-auto h-screen hidden-scrollbar items-center justify-center"

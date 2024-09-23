@@ -10,7 +10,7 @@ const DynamicCustomerConversations = dynamic(
 
 export default function page({ params }: any) {
   const conversation_id = params.conversationId;
-  console.log(params);
+
   return (
     <>
       <DynamicCustomerConversations conversation_id={conversation_id} />

@@ -74,7 +74,7 @@ export default function TopTenSlider() {
                   href={`/vendorpublicpage/${slide?.vendor?.id}`}
                 >
                   <Image
-                    src={slide?.vendor?.image}
+                    src={slide?.vendor?.image || "/images/userbg.png"}
                     alt="alt-image"
                     width={1024}
                     height={1280}
@@ -89,11 +89,12 @@ export default function TopTenSlider() {
                     {slide.title}
                   </p>
                   <p className="text-secend_text text-center text-[14px]">
-                    سعر بداية الخدمة {slide.start_price}$ إلى
-                    {slide.end_price}$
+                    {slide?.coast}$
                   </p>
                   <div className="flex-two text-sky-500 w-fit m-auto my-2">
-                    <p className="text-black">50</p>
+                    <p className="text-black">
+                      {slide?.vendor?.number_of_orders}
+                    </p>
                     <UserCircle2 width={17} />
                   </div>
                   <div className="rating flex-two absolute bottom-2 left-2">

@@ -15,11 +15,16 @@ export default function PaymentPage() {
   const cookie = Cookie();
   const router = useRouter();
   const token = cookie.get("token");
+  const [showPopup, setShowPopup] = useState(false);
   const [serviceswithamount, setserviceswithamount] = useState([]);
   const [updatebalance, setupdatebalance] = useState(false);
   const [totalmaincard, settotalmaincard] = useState("");
 
   const handlePayment = async () => {
+    if (maincard.length === 0) {
+      setShowPopup(true); // إظهار الـ popup إذا كانت السلة فارغة
+      return;
+    }
     try {
       const formdata = new FormData();
       formdata.append("name", currentuser.data.name);
@@ -42,6 +47,10 @@ export default function PaymentPage() {
   };
 
   const gotobalancepage = () => {
+    if (maincard.length === 0) {
+      setShowPopup(true); // إظهار الـ popup إذا كانت السلة فارغة
+      return;
+    }
     try {
       setglobalamount(totalmaincard);
       localStorage.setItem(
@@ -211,6 +220,22 @@ export default function PaymentPage() {
         </div>
       </div>
       <Callservicecustomer />
+      {showPopup && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[1000]">
+          <div className="bg-white p-6 rounded-md shadow-md">
+            <h2 className="text-lg font-bold">معلومات</h2>
+            <p className="text-center">
+              عذرًا، لا يمكنك الدفع بدون إضافة خدمات إلى السلة.
+            </p>
+            <button
+              onClick={() => setShowPopup(false)}
+              className="mt-4 px-4 py-2 bg-secend_color text-white rounded-md"
+            >
+              إغلاق
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }

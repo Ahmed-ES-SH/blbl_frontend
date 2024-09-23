@@ -48,10 +48,13 @@ export default function Sidebarchatsforusersmobail() {
 
   return (
     <motion.div
-      initial={{ width: "0" }}
-      animate={{ width: open ? "100%" : "15%" }}
+      initial={{ width: "0", height: "0" }}
+      animate={{
+        width: open ? "100%" : "12%",
+        height: open ? "100vh" : "23vh",
+      }}
       exit={{ width: "0" }}
-      transition={{ duration: 0.4 }}
+      transition={{ duration: 0.2 }}
       className="md:hidden absolute top-0 left-0  flex overflow-y-auto h-screen hidden-scrollbar items-center justify-center"
     >
       <div
@@ -69,7 +72,7 @@ export default function Sidebarchatsforusersmobail() {
         {currentuser && (
           <Link
             style={{ width: open ? "100%" : "fit-content" }}
-            href={"/conversations"}
+            href={"/customerservice"}
             className="currentuser w-full px-2 py-1 flex items-center justify-between bg-sky-300 rounded-t-md"
           >
             <div

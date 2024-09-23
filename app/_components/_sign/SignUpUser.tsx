@@ -348,7 +348,7 @@ export default function SignUpUser() {
             </div>
           </div>
         ) : (
-          <div className="w-full relative mt-16">
+          <div className="w-full relative mt-20">
             <div className="flex-between max-lg:flex-col justify-center items-center px-[20px]">
               <div className="img flex items-center justify-center relative w-[280px] h-[280px] rounded-full bg-secend_color">
                 {form.image == "" ? (

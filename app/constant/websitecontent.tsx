@@ -93,10 +93,6 @@ export const serviceprogram: allstring[] = [
 
 export const langs: allstring[] = [
   {
-    text: "العربية",
-    imgsrc: "/images/arabic.png",
-  },
-  {
     text: "English",
     imgsrc: "/images/english.png",
   },
@@ -269,7 +265,7 @@ export const codephonecontent: allstring[] = [
     image: "/flags/Emirates.svg.webp",
   },
   {
-    code: "+966",
+    code: "+968",
     image: "/flags/Oman.svg.webp",
   },
   {

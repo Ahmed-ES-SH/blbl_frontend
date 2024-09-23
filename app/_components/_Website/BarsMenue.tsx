@@ -107,8 +107,8 @@ export default function BarsMenue() {
                       currentuser !== null && line.text == "الملف  الشخصى"
                         ? `${
                             currentuser.type == "user"
-                              ? "userprivatepage"
-                              : "vendorprivatepage"
+                              ? "/userprivatepage"
+                              : "/vendorprivatepage"
                           }/${currentuser.data ? currentuser.data.id : ""}`
                         : `${line.to}`
                     }
